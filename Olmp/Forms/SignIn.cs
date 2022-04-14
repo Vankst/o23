@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Olmp.Forms
@@ -39,11 +40,11 @@ namespace Olmp.Forms
             }
             else
             {
-                hash = CreateMD5Hash(tb_password.Text);
-                DB dB = new DB();
-                dB.SignIn(tb_email.Text, out password, out pr);
-                if (hash.ToLower() == password && pr == true)
-                {
+                //hash = CreateMD5Hash(tb_password.Text);
+                //DB dB = new DB();
+                //dB.SignIn(tb_email.Text, out password, out pr);
+                //if (hash.ToLower() == password && pr == true)
+                //{
                     Account account = new Account();
                     Account.email = tb_email.Text;
                     Main main = new Main();
@@ -51,13 +52,14 @@ namespace Olmp.Forms
                     Main.email = tb_email.Text;
                     account.Show();
                     this.Hide();
-                }
-                else
-                {
-                    lbl_error.Visible = true;
-                    lbl_error.Text = "Неправильный логин или пароль";
-                }
+                //}
+                //else
+                //{
+                //    lbl_error.Visible = true;
+                //    lbl_error.Text = "Неправильный логин или пароль";
+                //}
             }
+           
 
         }
 
@@ -74,18 +76,13 @@ namespace Olmp.Forms
             }
             return sb.ToString();
         }
-        static bool IsEmail(string s)
+        static bool IsEmail(string email)
         {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(s);
-                return addr.Address == s;
-
-            }
-            catch
-            {
+            string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
+            if (Regex.IsMatch(email, cond))
+                return true;
+            else 
                 return false;
-            }
 
         }
 

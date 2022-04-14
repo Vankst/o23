@@ -115,6 +115,12 @@
     <Compile Include="Forms\Account.Designer.cs">
       <DependentUpon>Account.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\addApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\addApp.Designer.cs">
+      <DependentUpon>addApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DB.cs" />
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
@@ -138,6 +144,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\addApp.resx">
+      <DependentUpon>addApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

@@ -68,5 +68,14 @@ namespace Olmp.Forms
                     amount++;
             npgSqlConnection.Close();
         }
+
+        public void addApp(string name, string ucode, string email)
+        {
+            NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString);
+            npgSqlConnection.Open();
+            NpgsqlCommand npgSqlCommand = new NpgsqlCommand($"INSERT INTO app(email, name, ucode, date) VALUES ('{email}', '{name}', '{ucode}', '{DateTime.Now:g}')", npgSqlConnection);
+            npgSqlCommand.ExecuteNonQuery();
+            npgSqlConnection.Close();
+        }
     }
 }

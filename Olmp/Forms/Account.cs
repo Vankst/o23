@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Olmp.Forms;
 
 namespace Olmp
 {
@@ -55,12 +56,7 @@ namespace Olmp
 
         private void btn_applist_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btn_addapp_Click(object sender, EventArgs e)
-        {
-
+           
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
@@ -68,6 +64,13 @@ namespace Olmp
             Main main = new Main();
             Main.SignIN = false;
             main.Show();
+            this.Close();
+        }
+
+        private void btn_addapp_Click(object sender, EventArgs e)
+        {
+            addApp addApp = new addApp();
+            addApp.Show();
             this.Close();
         }
     }

@@ -70,8 +70,6 @@ namespace Olmp
             btn_signup.Visible = true;
             btn_PersonalArea.Visible = false;
             btn_exit.Visible = false;
-
-
         }
 
         private void btn_main_Click(object sender, EventArgs e)
