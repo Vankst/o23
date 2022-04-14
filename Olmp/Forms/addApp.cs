@@ -21,6 +21,7 @@ namespace Olmp.Forms
         private void btn_acc_Click(object sender, EventArgs e)
         {
             Account account = new Account();
+            Account.email = email;
             account.Show();
             this.Close();
         }

@@ -77,5 +77,17 @@ namespace Olmp.Forms
             npgSqlCommand.ExecuteNonQuery();
             npgSqlConnection.Close();
         }
+
+        public void appList(string email)
+        {
+            NpgsqlConnection npgSqlConnection = new NpgsqlConnection(connectionString);
+            npgSqlConnection.Open();
+            NpgsqlCommand npgSqlCommand = new NpgsqlCommand($"SELECT 'Уникальный код' = SUBSTRING(app.ucode,1,50), 'Название' =SUBSTRING(app.name,1,50), 'Дата добавления' = SUBSTRING(app.date,1,50) FROM users WHERE email = '{email}';", npgSqlConnection);
+            NpgsqlDataReader npgSqlDataReader = npgSqlCommand.ExecuteReader();
+            if (npgSqlDataReader.HasRows)
+                foreach (DbDataRecord dbDataRecord in npgSqlDataReader)
+                   
+            npgSqlConnection.Close();
+        }
     }
 }

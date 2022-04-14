@@ -56,7 +56,11 @@ namespace Olmp
 
         private void btn_applist_Click(object sender, EventArgs e)
         {
-           
+            viewApp viewApp = new viewApp();
+            viewApp.email = email;
+            viewApp.Show();
+            this.Close();
+
         }
 
         private void btn_exit_Click(object sender, EventArgs e)
@@ -70,7 +74,8 @@ namespace Olmp
         private void btn_addapp_Click(object sender, EventArgs e)
         {
             addApp addApp = new addApp();
-            addApp.Show();
+            addApp.email = email;
+            addApp.Show();           
             this.Close();
         }
     }
