@@ -2,6 +2,7 @@
 using System;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
@@ -70,18 +71,13 @@ namespace Olmp
             return sb.ToString();
         }
 
-        static bool IsEmail(string s)
+        static bool IsEmail(string email)
         {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(s);
-                return addr.Address == s;
-
-            }
-            catch
-            {
+            string cond = @"(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)";
+            if (Regex.IsMatch(email, cond))
+                return true;
+            else
                 return false;
-            }
 
         }
 
